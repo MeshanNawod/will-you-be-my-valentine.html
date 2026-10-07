@@ -6,15 +6,12 @@ Everything runs in the browser. Nothing is uploaded to a server — your details
 
 ## How it works
 
-![How it works](images/flow.svg)
-
 1. Open `valentine-fixed.html` in any browser.
 2. Fill in the form and press **Create my link**.
 3. Share the link, or download the self-contained HTML file.
+4. They open it, press **No** a few times, then press **Yes**.
 
-## 1. The builder
-
-![Builder form](images/builder.svg)
+## The builder
 
 | Field | Required | Notes |
 |---|---|---|
@@ -29,17 +26,13 @@ Tips:
 - A **hosted image link** keeps the shareable link short.
 - An **uploaded photo** is cropped to a square and shrunk to 240px so the link stays manageable. For uploads, the downloaded file is the most reliable way to share.
 
-## 2. The ask
-
-![The ask screen](images/ask.svg)
+## The ask
 
 Each time they press **No**:
 - the button shows the next line from your list (and loops when it runs out), and
 - the **Yes** button gets bigger and wider, until it takes over the whole row.
 
-## 3. The yes
-
-![The yes screen](images/yay.svg)
+## The yes
 
 Pressing **Yes** shows confetti, their photo, your message and your signature.
 
@@ -50,13 +43,12 @@ Pressing **Yes** shows confetti, their photo, your message and your signature.
 | Shareable link | Quick sending in chat | Very long if you upload a photo |
 | Downloaded HTML file | Attach, email or AirDrop | Recipient opens it in a browser |
 
-> The link points to wherever you opened the page. If you opened it from your computer (`file://`), the link will only work on that computer — host the page online, or send the downloaded file instead.
+> The link points to wherever you opened the page. If you opened it from your computer (`file://`), the link will only work on that computer — host the page online (for example with GitHub Pages), or send the downloaded file instead.
 
 ## Files
 
 ```
 valentine-fixed.html   the whole app (HTML + CSS + JS)
-images/                illustrations used in this README
 README.md              this file
 ```
 
