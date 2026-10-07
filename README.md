@@ -1,39 +1,67 @@
-# 💌 Interactive Valentine's Proposal App
+# Will you be my Valentine? 💌
 
-An interactive, responsive single-file web app built with vanilla HTML, CSS, and JavaScript. It lets anyone create a personalized "Will you be my Valentine?" interactive card with custom messages, photos, and a playful interactive "No" button that grows the "Yes" button dynamically before triggering celebratory confetti!
+A single-page, no-install Valentine's ask. Fill in a short form, send the link (or the file) to someone special, and watch the **Yes** button grow every time they hesitate.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+Everything runs in the browser. Nothing is uploaded to a server — your details live only in the link or the file you download.
 
----
+## How it works
 
-## ✨ Features
+![How it works](images/flow.svg)
 
-* **Dual-View Architecture:** Functions as both a **Builder** (to customize recipient, photo, prompts, and final messages) and a **Recipient View** (the interactive proposal card).
-* **Flexible Personalization:** 
-  * Custom recipient name and optional sender signature.
-  * Image support via direct URL or local file upload (converted to data URLs for standalone use).
-  * Editable opening lines, multi-step persuasive rejection prompts, and a "Yes" celebration message.
-* **Playful Interaction:** Clicking "No" cycles through custom persuasion lines while progressively expanding the "Yes" button to gently encourage a positive response.
-* **Celebration Effects:** Triggers falling animated confetti upon choosing "Yes".
-* **Sharing Options:** Generates a shareable URL query string or packages everything into a **fully self-contained, downloadable HTML file** that works offline and can be shared via AirDrop, email, or messaging apps.
+1. Open `valentine-fixed.html` in any browser.
+2. Fill in the form and press **Create my link**.
+3. Share the link, or download the self-contained HTML file.
 
----
+## 1. The builder
 
-## 🚀 Quick Start
+![Builder form](images/builder.svg)
 
-Since this application is entirely contained within a **single standalone HTML file**, running or sharing it is effortless:
+| Field | Required | Notes |
+|---|---|---|
+| Their name | Yes | Shown in the headline |
+| Your name | No | Signs the final message |
+| Picture | No | Paste an image link, or upload a photo |
+| Opening line | No | Shown under the headline |
+| If they hesitate | No | One line per press of **No** |
+| Message after yes | No | Shown on the final screen |
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+Tips:
+- A **hosted image link** keeps the shareable link short.
+- An **uploaded photo** is cropped to a square and shrunk to 240px so the link stays manageable. For uploads, the downloaded file is the most reliable way to share.
 
- * Open the file:
-   * Double-click index.html to open the builder interface directly in your web browser.
-   * Fill out the fields, upload a photo, and click Create my link or Download HTML to share with your special someone!
-🛠️ Tech Stack
- * HTML5 / CSS3: Mobile-first layout with clean styling, custom form controls, and CSS keyframe animations for falling confetti.
- * JavaScript (ES6+): Vanilla logic handling state serialization/deserialization via URL parameters (?d=), local file reading (FileReader), dynamic DOM building, and responsive event handling.
-📄 License
-This project is open-source and available under the MIT License. Feel free to use, customize, and share it to spread some love!
+## 2. The ask
 
+![The ask screen](images/ask.svg)
+
+Each time they press **No**:
+- the button shows the next line from your list (and loops when it runs out), and
+- the **Yes** button gets bigger and wider, until it takes over the whole row.
+
+## 3. The yes
+
+![The yes screen](images/yay.svg)
+
+Pressing **Yes** shows confetti, their photo, your message and your signature.
+
+## Sharing options
+
+| Option | Best for | Caveat |
+|---|---|---|
+| Shareable link | Quick sending in chat | Very long if you upload a photo |
+| Downloaded HTML file | Attach, email or AirDrop | Recipient opens it in a browser |
+
+> The link points to wherever you opened the page. If you opened it from your computer (`file://`), the link will only work on that computer — host the page online, or send the downloaded file instead.
+
+## Files
+
+```
+valentine-fixed.html   the whole app (HTML + CSS + JS)
+images/                illustrations used in this README
+README.md              this file
+```
+
+## Notes
+
+- Works offline once the page is open, except for the bear GIF, which loads from the web and is hidden if it fails.
+- Reduced-motion settings are respected (confetti and animations are turned off).
+- Pinch-zoom is allowed for accessibility.
